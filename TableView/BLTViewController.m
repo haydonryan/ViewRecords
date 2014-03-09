@@ -68,10 +68,9 @@
     
     _firstName.text = person.first;
     _lastName.text = person.last;
-    
-
-    
 }
+
+
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     // The request has failed for some reason!
@@ -79,8 +78,6 @@
 
     // Check the error var
 }
-
-
 
 
 
@@ -122,131 +119,5 @@
     NSURLConnection *connection = [[NSURLConnection alloc] initWithRequest:[NSURLRequest requestWithURL:url] delegate:self];
     
     
-    
-    /*
-    
-    [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-        
-        if (error) {
-            NSLog(@"Failed");
-          //  [self.delegate fetchingGroupsFailedWithError:error];
-        } else {
-            NSLog(@"Success");
-            NSLog([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-            
-            NSError *localError=nil;
-            NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
-            
-            if(localError!=nil) {
-                NSLog(@"Error parsing JSON Object");
-            }
-            
-            BLTNames * person = [[BLTNames alloc] init];
-            for (NSString * key in parsedObject)  {
-                if([person respondsToSelector:NSSelectorFromString(key) ])
-                    [person setValue:[parsedObject valueForKey:key] forKey:key];
-                
-               
-            }
-            
-            NSLog(person.first);
-            NSLog(person.last );
-                        
-            _firstName.text = person.first;
-            _lastName.text = person.last;
-            
-            [_firstName setNeedsLayout];
-            [self.view setNeedsDisplay];
-            [self.view setNeedsLayout];
-//            _firstName.
-   
-            //[self setne
-            
-         //   [self performselector:@selector() withObject:nil afterDelay:0];
-      
-        }
-    }];*/
-    
-    _firstName.text = @"hello";
-    [self.view setNeedsLayout];
-    [self.view setNeedsDisplay];
-    [_firstName setNeedsDisplay];
-    [_lastName setNeedsDisplay];
-    
 }
-
-
-
-
-/*
- 
- 
- - (IBAction)ClickRefresh:(id)sender {
- // On touching refresh
- NSLog(@"Touched up");
- 
- NSLog(  [NSString stringWithFormat:@"%@ %@", @"First: ",_firstName.text]);
- NSLog(  [NSString stringWithFormat:@"%@ %@", @"Last: ", _lastName.text]);
- 
- 
- 
- NSString *num = _idNumber.text;
- int i = [num intValue];
- 
- 
- NSString *webService = [NSString stringWithFormat:@"%@/%@.json", @"http://hr-gettable.herokuapp.com/names", _idNumber.text];
- NSLog( webService);
- NSURL *url = [[NSURL alloc] initWithString:webService];
- //NSLog(@"%@", webService);
- 
- [NSURLConnection sendAsynchronousRequest:[[NSURLRequest alloc] initWithURL:url] queue:[[NSOperationQueue alloc] init] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
- 
- if (error) {
- NSLog(@"Failed");
- //  [self.delegate fetchingGroupsFailedWithError:error];
- } else {
- NSLog(@"Success");
- NSLog([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
- 
- NSError *localError=nil;
- NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:data options:0 error:&localError];
- 
- if(localError!=nil) {
- NSLog(@"Error parsing JSON Object");
- }
- 
- BLTNames * person = [[BLTNames alloc] init];
- for (NSString * key in parsedObject)  {
- if([person respondsToSelector:NSSelectorFromString(key) ])
- [person setValue:[parsedObject valueForKey:key] forKey:key];
- 
- 
- }
- 
- NSLog(person.first);
- NSLog(person.last );
- 
- _firstName.text = person.first;
- _lastName.text = person.last;
- 
- [_firstName setNeedsLayout];
- [self.view setNeedsDisplay];
- [self.view setNeedsLayout];
- //            _firstName.
- 
- //[self setne
- 
- //   [self performselector:@selector() withObject:nil afterDelay:0];
- 
- }
- }];
- 
- _firstName.text = @"hello";
- [self.view setNeedsLayout];
- [self.view setNeedsDisplay];
- [_firstName setNeedsDisplay];
- [_lastName setNeedsDisplay];
- 
- }
-*/
 @end
