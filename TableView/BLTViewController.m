@@ -49,7 +49,7 @@
     
     NSLog(@"finished loading here");
 
-    NSLog([[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding]);
+    NSLog(@"%@", [[NSString alloc] initWithData:_responseData encoding:NSUTF8StringEncoding]);
     
     NSError *localError=nil;
     NSDictionary *parsedObject = [NSJSONSerialization JSONObjectWithData:_responseData options:0 error:&localError];
@@ -101,17 +101,17 @@
     // On touching refresh
     NSLog(@"Touched up");
     
-    NSLog(  [NSString stringWithFormat:@"%@ %@", @"First: ",_firstName.text]);
-    NSLog(  [NSString stringWithFormat:@"%@ %@", @"Last: ", _lastName.text]);
+    NSLog(@"First: %@",   _firstName.text);
+    NSLog(@"Last: %@",  _lastName.text);
     
     
     
-    NSString *num = _idNumber.text;
-    int i = [num intValue];
+  //  NSString *num = _idNumber.text;
+   // int i = [num intValue];
     
     
     NSString *webService = [NSString stringWithFormat:@"%@/%@.json", @"http://hr-gettable.herokuapp.com/names", _idNumber.text];
-    NSLog( webService);
+    NSLog( @"%@", webService);
     NSURL *url = [[NSURL alloc] initWithString:webService];
     //NSLog(@"%@", webService);
     
